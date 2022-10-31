@@ -1,6 +1,4 @@
-import type { NextPage } from 'next';
-
-function Home(): NextPage {
+function Home() {
   return (
     <div>
       <div className="flex flex-col items-center">
