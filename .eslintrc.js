@@ -32,6 +32,23 @@ module.exports = {
   },
 
   rules: {
+    'import/no-extraneous-dependencies': [
+      'warn',
+      {
+        devDependencies: [
+          '**/__tests__/**', // jest pattern
+          'test.{ts,tsx}', // repos with a single test file
+          'test-*.{ts,tsx}', // repos with multiple top-level test files
+          '**/*{.,_}{test,spec}.{ts,tsx}', // tests where the extension or filename suffix denotes that it is a test
+          '**/jest.config.ts', // jest config
+          '**/jest.setup.ts', // jest setup
+          '**/test.tsx',
+          '**/test.ts',
+        ],
+        optionalDependencies: false,
+        peerDependencies: false,
+      },
+    ],
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
     'react/function-component-definition': 'off',
@@ -43,10 +60,7 @@ module.exports = {
       'warn',
       { extensions: ['.jsx', '.tsx', '.js', '.ts'] },
     ],
-    'import/no-extraneous-dependencies': [
-      2,
-      { devDependencies: ['**/test.tsx', '**/test.ts'] },
-    ],
+
     '@typescript-eslint/indent': [2, 2],
     '@typescript-eslint/no-unused-vars': [
       'error',
