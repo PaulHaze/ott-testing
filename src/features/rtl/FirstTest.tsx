@@ -5,7 +5,7 @@ export function FirstTest() {
     <div>
       <Header text="React Testing Library" />
       <div className="mt-10">
-        <p>Here is the first tets</p>
+        <p>Here is the first test</p>
       </div>
     </div>
   );
