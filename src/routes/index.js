@@ -5,8 +5,8 @@ export const routes = [
     label: 'Home',
   },
   {
-    path: '/pageone',
-    key: 'pageone',
-    label: 'Page One',
+    path: '/rtl',
+    key: 'rtl',
+    label: 'React Testing Library',
   },
 ];

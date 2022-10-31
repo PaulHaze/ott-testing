@@ -1,14 +1,8 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
 
 function Home(): NextPage {
   return (
     <div>
-      <Head>
-        <title>OTT Testing</title>
-        <link rel="icon" href="/favicon.png" />
-        <link rel="apple-touch-icon" href="/logo192.png" />
-      </Head>
       <div className="flex-col min-h-[100vh] bg-gradient-to-br from-green-300/10 to-sky-800/10 flex items-center">
         <div className="w-11/12 mt-10 bg-white rounded-lg shadow-xl h-max p-md">
           <h1 className="font-bold text-center text-transparent bg-clip-text bg-gradient-to-b from-indigo-400 to-violet-800">

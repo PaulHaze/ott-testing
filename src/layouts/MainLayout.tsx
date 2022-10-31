@@ -13,8 +13,9 @@ export function MainLayout({ children }: MainLayoutProps) {
   return (
     <>
       <Head>
-        <title>CHANGE THIS</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>OTT Testing</title>
+        <link rel="icon" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/logo192.png" />
       </Head>
       <div className="flex flex-grow">
         <div
