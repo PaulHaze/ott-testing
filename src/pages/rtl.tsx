@@ -1,9 +1,9 @@
-function rtl() {
+import { FirstTest } from '@Features';
+
+export default function rtl() {
   return (
-    <div>
-      <p>rtl Placeholder</p>
+    <div className="p-4">
+      <FirstTest />
     </div>
   );
 }
-
-export default rtl;

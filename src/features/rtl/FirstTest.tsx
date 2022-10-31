@@ -1,7 +1,12 @@
+import { Header } from '@Components';
+
 export function FirstTest() {
   return (
     <div>
-      <p>FirstTest Placeholder</p>
+      <Header text="React Testing Library" />
+      <div className="mt-10">
+        <p>Here is the first tets</p>
+      </div>
     </div>
   );
 }

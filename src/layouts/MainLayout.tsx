@@ -7,7 +7,7 @@ export type MainLayoutProps = {
 };
 
 export function MainLayout({ children }: MainLayoutProps) {
-  const [showNav, setShowNav] = useState(true);
+  const [showNav, setShowNav] = useState(false);
 
   const handleNavClick = () => setShowNav((prev) => !prev);
   return (
@@ -19,7 +19,7 @@ export function MainLayout({ children }: MainLayoutProps) {
       </Head>
       <div className="flex flex-grow">
         <div
-          className={`ease-in-out transition-all duration-700 ${
+          className={`ease-in-out transition-all duration-500 ${
             showNav ? 'min-w-[190px] w-[150px]' : 'min-w-[40px] w-[40px]'
           }`}
         >
