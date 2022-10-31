@@ -1,17 +1,15 @@
 {
-  "name": "nextjs-ts-tw-starter",
+  "name": "ott-testing",
   "version": "0.1.0",
-  "packageManager": "pnpm@7.13.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "e2e": "npx cypress run"
+    "e2e:cy": "npx cypress run"
   },
   "dependencies": {
-    "eslint-config-airbnb-typescript": "^17.0.0",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -30,6 +28,7 @@
     "cypress": "^10.11.0",
     "eslint": "^8.26.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-typescript": "^3.5.2",
     "eslint-plugin-cypress": "^2.12.1",
