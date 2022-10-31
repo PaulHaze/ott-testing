@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
@@ -27,6 +29,9 @@ module.exports = {
       center: true,
     },
     extend: {
+      fontFamily: {
+        title: ['Anton', ...defaultTheme.fontFamily.sans],
+      },
       minWidth: {
         sm: '640px',
         md: '768px',

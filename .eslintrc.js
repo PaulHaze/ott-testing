@@ -44,6 +44,7 @@ module.exports = {
           '**/jest.setup.ts', // jest setup
           '**/test.tsx',
           '**/test.ts',
+          '**/*.config.js',
         ],
         optionalDependencies: false,
         peerDependencies: false,
@@ -60,15 +61,74 @@ module.exports = {
       'warn',
       { extensions: ['.jsx', '.tsx', '.js', '.ts'] },
     ],
-
-    '@typescript-eslint/indent': [2, 2],
-    '@typescript-eslint/no-unused-vars': [
-      'error',
-      {
-        vars: 'all',
-        args: 'after-used',
-        ignoreRestSiblings: false,
-      },
-    ],
   },
+  overrides: [
+    // Configuration for TypeScript files
+    {
+      files: ['**/*.ts', '**/*.tsx'],
+      plugins: ['@typescript-eslint', 'unused-imports'],
+      extends: [
+        'airbnb-typescript',
+        'next/core-web-vitals',
+        'prettier',
+        'plugin:prettier/recommended',
+      ],
+      parserOptions: {
+        project: './ott-testing/tsconfig.json',
+      },
+      rules: {
+        'prettier/prettier': [
+          'error',
+          {
+            singleQuote: true,
+            endOfLine: 'auto',
+            semi: true,
+            trailingComma: 'all',
+            printWidth: 80,
+            tabWidth: 2,
+          },
+        ],
+        'react/destructuring-assignment': 'off', // Vscode doesn't support automatically destructuring, it's a pain to add a new variable
+        'jsx-a11y/anchor-is-valid': 'off', // Next.js uses its own internal link system
+        'react/require-default-props': 'off', // Allow non-defined react props as undefined
+        'react/jsx-props-no-spreading': 'off', // _app.tsx uses spread operator and also, react-hook-form
+        'react-hooks/exhaustive-deps': 'off', // Incorrectly report needed dependency with Next.js router
+        '@next/next/no-img-element': 'off', // We currently not using next/image because it isn't supported with SSG mode
+        '@typescript-eslint/comma-dangle': 'off', // Avoid conflict rule between Eslint and Prettier
+        '@typescript-eslint/consistent-type-imports': 'error', // Ensure `import type` is used when it's necessary
+        'import/prefer-default-export': 'off', // Named export is easier to refactor automatically
+        'import/extensions': [
+          'warn',
+          'never',
+          {
+            png: 'always',
+            jpg: 'always',
+          },
+        ],
+        '@typescript-eslint/no-unused-vars': 'off',
+        'unused-imports/no-unused-imports': 'error',
+        'unused-imports/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      },
+    },
+    // Configuration for testing
+    {
+      files: ['**/*.test.ts', '**/*.test.tsx'],
+      plugins: ['jest', 'jest-formatting', 'testing-library', 'jest-dom'],
+      extends: [
+        'plugin:jest/recommended',
+        'plugin:jest-formatting/recommended',
+        'plugin:testing-library/react',
+        'plugin:jest-dom/recommended',
+      ],
+    },
+    // Configuration for e2e testing (Cypress)
+    {
+      files: ['**/*.cy.ts'],
+      plugins: ['cypress'],
+      extends: ['plugin:cypress/recommended'],
+      parserOptions: {
+        project: './cypress/tsconfig.json',
+      },
+    },
+  ],
 };
