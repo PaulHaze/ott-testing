@@ -20,7 +20,7 @@ export function MainLayout({ children }: MainLayoutProps) {
       <div className="flex flex-grow">
         <div
           className={`ease-in-out transition-all duration-700 ${
-            showNav ? 'min-w-[150px] w-[150px]' : 'min-w-[40px] w-[40px]'
+            showNav ? 'min-w-[190px] w-[150px]' : 'min-w-[40px] w-[40px]'
           }`}
         >
           <NavBar showNav={showNav} handleNavClick={handleNavClick} />

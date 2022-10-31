@@ -14,7 +14,13 @@
 }
 
 .linksList {
-  @apply transition-all duration-500;
+  @apply transition-all;
+}
+.fadeIn {
+  @apply opacity-100 duration-500 delay-200;
+}
+.fadeOut {
+  @apply opacity-0 duration-300;
 }
 
 .sidebarLink {

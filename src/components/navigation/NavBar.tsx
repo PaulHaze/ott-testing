@@ -35,7 +35,7 @@ export function NavBar({ showNav, handleNavClick }: NavBarProps) {
       {/* ROUTES */}
       <ul
         className={`${styles.linksList} ${
-          !showNav ? 'opacity-0' : 'opacity-100'
+          !showNav ? styles.fadeOut : styles.fadeIn
         }`}
       >
         {renderRoutes}
