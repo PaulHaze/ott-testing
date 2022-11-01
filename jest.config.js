@@ -9,7 +9,7 @@ const createJestConfig = nextJest({
 // Add any custom config to be passed to Jest
 const customJestConfig = {
   // Add more setup options before each test is run
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   // if using TypeScript with a baseUrl set to the root directory then you need the below for alias' to work
   moduleDirectories: ['node_modules', '<rootDir>/'],
   moduleNameMapper: {
@@ -20,6 +20,22 @@ const customJestConfig = {
     '^@Layouts': '<rootDir>/src/layouts/index.ts',
     '^@/features/(.*)$': '<rootDir>/src/features/$1',
     '^@Features': '<rootDir>/src/features/index.ts',
+  },
+  collectCoverage: true,
+  collectCoverageFrom: [
+    './src/**/*.{js,jsx,ts,tsx}',
+    '!./src/**/_*.{js,jsx,ts,tsx}',
+    '!**/*.d.ts',
+    '!**/node_modules/**',
+  ],
+  // increase this once you get better at testing
+  coverageThreshold: {
+    global: {
+      branches: 20,
+      functions: 20,
+      lines: 20,
+      statements: 20,
+    },
   },
   testEnvironment: 'jest-environment-jsdom',
 };

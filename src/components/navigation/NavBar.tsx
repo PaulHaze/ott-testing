@@ -21,6 +21,7 @@ export function NavBar({ showNav, handleNavClick }: NavBarProps) {
       {/* SHOW HIDE BUTTON */}
       <div className={styles.toggleBtnContainer}>
         <button
+          data-testid="sidebar-btn"
           type="button"
           onClick={handleNavClick}
           className={styles.toggleBtn}
